@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.demo.dao.UserMapper">
+    <!--<select id="findById" parameterType="int" resultType="com.hgc.pojo.User">
+        SELECT * FROM User WHERE id=#{id}
+    </select>-->
+
+    <resultMap type="User" id="userResult">
+        <id property="id" column="id"/>
+        <result property="username" column="userName"/>
+        <result property="password" column="password"/>
+    </resultMap>
+
+
+    <insert id="insertUser" parameterType="User" useGeneratedKeys="true" keyProperty="id">
+        insert into t_user (userName,password)
+        values
+        (#{username},#{password})
+    </insert>
+</mapper>
